@@ -1,1 +1,39 @@
-<h1>MainComponent</h1>
+<ion-header>
+  <ion-toolbar>
+    <ion-img
+      src="assets/icon/accenture.png"
+      alt="Accenture"
+      class="w-32"
+    ></ion-img>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="flex flex-col gap-6 p-4">
+    <section class="flex flex-col gap-2">
+      <h2 class="text-lg font-semibold">Categorias</h2>
+
+      <app-form-edit-save-categories></app-form-edit-save-categories>
+
+      <app-list-categories-on-cards></app-list-categories-on-cards>
+    </section>
+
+    <section class="flex flex-col gap-2">
+      <h2 class="text-lg font-semibold">Tareas</h2>
+
+      <app-tasks-search></app-tasks-search>
+
+      <app-form-edit-save-tasks></app-form-edit-save-tasks>
+
+      <app-list-tasks-on-cards></app-list-tasks-on-cards>
+    </section>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <h1 class="text-center text-xs">
+      © 2026 Accenture todos los derechos reservados
+    </h1>
+  </ion-toolbar>
+</ion-footer>
