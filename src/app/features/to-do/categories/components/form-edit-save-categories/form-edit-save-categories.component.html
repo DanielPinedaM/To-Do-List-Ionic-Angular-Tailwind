@@ -1,1 +1,29 @@
-<h1>form-edit-save-categories</h1>
+<form
+  [formGroup]="categoryForm"
+  (ngSubmit)="onSubmitSaveCategory()"
+  class="flex flex-col gap-2"
+>
+  <ion-list class="grid grid-cols-1 gap-2">
+    <ion-item>
+      <ion-input
+        type="text"
+        label="Categoria"
+        labelPlacement="floating"
+        placeholder="Escriba el nombre de la categoria"
+        formControlName="description"
+      ></ion-input>
+    </ion-item>
+  </ion-list>
+
+  @if (submitted() && descriptionControl.hasError("required")) {
+    <p class="text-sm text-red-600">La categoria es obligatoria</p>
+  }
+
+  @if (submitted() && descriptionControl.hasError("minlength")) {
+    <p class="text-sm text-red-600">
+      La categoria debe tener minimo {{ minDescriptionLength }} caracteres
+    </p>
+  }
+
+  <ion-button type="submit" expand="block">Guardar</ion-button>
+</form>
