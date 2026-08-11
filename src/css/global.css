@@ -1,18 +1,3 @@
-/* Ionic */
-@import "@ionic/angular/css/core.css";
-@import "@ionic/angular/css/structure.css";
-@import "@ionic/angular/css/display.css";
-
-/* Tailwind */
-@import "tailwindcss";
-
-body {
-  /* area segura en mobile */
-  padding-top: env(safe-area-inset-top);
-  padding-bottom: env(safe-area-inset-bottom);
-}
-
-ion-header,
-ion-footer {
-  box-shadow: none !important;
-}
+@import "./ionic/import.css";
+@import "./reset.css";
+@import "tailwindcss" important;

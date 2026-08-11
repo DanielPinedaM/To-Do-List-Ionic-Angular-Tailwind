@@ -1,0 +1,11 @@
+html,
+body {
+  background-color: #000;
+  color: white;
+}
+
+body {
+  /* area segura en mobile */
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+}

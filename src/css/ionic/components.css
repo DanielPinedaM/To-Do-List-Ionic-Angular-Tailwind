@@ -1,0 +1,46 @@
+/* ESTILOS GLOBALES PARA COMPONENTES DE IONIC */
+
+/* ventanas modales */
+ion-alert {
+  --background: #202020 !important;
+  --backdrop-opacity: 0.8 !important;
+}
+
+ion-alert {
+  & .alert-wrapper {
+    border: 0.5px solid var(--ion-color-primary);
+    border-radius: 20px !important;
+  }
+
+  /* textos de ventana modal */
+  & .alert-title,
+  & .alert-sub-title,
+  & .alert-radio-label,
+  & .alert-checkbox-label {
+    color: white;
+  }
+
+  & .alert-message,
+  & .alert-input-group {
+    color: var(--ion-color-step-900);
+  }
+
+  /* Opcion seleccionada del <ion-select> */
+  & [aria-checked="true"] {
+    & .alert-radio-label,
+    & .alert-checkbox-label {
+      color: var(--ion-color-primary);
+    }
+  }
+
+  /* botones "CANCEL" y "OK" de <ion-select> */
+  & .alert-button {
+    color: var(--ion-color-primary);
+  }
+}
+
+/* encabezado y pie de pagina */
+ion-header,
+ion-footer {
+  box-shadow: none !important;
+}
