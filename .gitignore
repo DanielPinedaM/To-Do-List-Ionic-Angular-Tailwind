@@ -22,6 +22,8 @@ log.txt
 /www
 /platforms
 /plugins
+/android
+/ios
 
 # Compiled output
 /dist
@@ -56,7 +58,6 @@ yarn-error.log
 # Miscellaneous
 /.angular
 /.angular/cache
-.sass-cache/
 /.nx
 /.nx/cache
 /connect.lock
