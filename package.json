@@ -5,9 +5,20 @@
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
+
+    "start": "ionic serve --external",
+    "ionic": "ionic",
+    "build:ionic": "ionic build",
+
+    "cap": "cap",
+    "cap:add:android": "cap add android",
+    "cap:sync:android": "cap sync android",
+    "cap:open:android": "cap open android",
+
+    "cap:add:ios": "cap add ios",
+    "cap:sync:ios": "cap sync ios",
+    "cap:open:ios": "cap open ios",
+
     "test": "ng test",
     "lint": "ng lint"
   },
