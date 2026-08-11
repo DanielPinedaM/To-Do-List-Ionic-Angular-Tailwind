@@ -1,1 +1,56 @@
-<h1>form-edit-save-tasks</h1>
+<form
+  [formGroup]="taskForm"
+  (ngSubmit)="onSubmitSaveTask()"
+  class="flex flex-col gap-2"
+>
+  <ion-list class="grid grid-cols-1 gap-2">
+    <div class="flex flex-col gap-1">
+      <ion-item>
+        <ion-input
+          type="text"
+          label="Descripcion"
+          labelPlacement="floating"
+          placeholder="Escriba la descripcion de la tarea"
+          formControlName="description"
+        ></ion-input>
+      </ion-item>
+
+      @if (submitted() && descriptionControl.hasError("required")) {
+        <p class="text-sm text-red-600">La descripcion es obligatoria</p>
+      }
+
+      @if (submitted() && descriptionControl.hasError("minlength")) {
+        <p class="text-sm text-red-600">
+          La descripcion debe tener minimo {{ minDescriptionLength }} caracteres
+        </p>
+      }
+    </div>
+
+    <div class="flex flex-col gap-1">
+      <ion-item>
+        <ion-select
+          label="Categoria"
+          labelPlacement="floating"
+          placeholder="Seleccione una categoria"
+          formControlName="category"
+        >
+          @for (category of categories(); track category.id) {
+            <ion-select-option [value]="category.id">{{
+              category.description
+            }}</ion-select-option>
+          }
+        </ion-select>
+      </ion-item>
+
+      @if (submitted() && categoryControl.hasError("required")) {
+        <p class="text-sm">La categoria es obligatoria</p>
+      }
+    </div>
+
+    <ion-item>
+      <ion-toggle formControlName="completed">Completada</ion-toggle>
+    </ion-item>
+  </ion-list>
+
+  <ion-button type="submit" expand="block">Guardar</ion-button>
+</form>
