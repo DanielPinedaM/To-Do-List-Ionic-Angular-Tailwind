@@ -5,20 +5,16 @@
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",
-
     "start": "ionic serve --external",
     "ionic": "ionic",
     "build:ionic": "ionic build",
-
     "cap": "cap",
     "cap:add:android": "cap add android",
     "cap:sync:android": "cap sync android",
     "cap:open:android": "cap open android",
-
     "cap:add:ios": "cap add ios",
     "cap:sync:ios": "cap sync ios",
     "cap:open:ios": "cap open ios",
-
     "test": "ng test",
     "lint": "ng lint"
   },
@@ -41,8 +37,11 @@
     "@capacitor/preferences": "^8.0.1",
     "@capacitor/status-bar": "8.0.3",
     "@ionic/angular": "^8.0.0",
+    "@tailwindcss/postcss": "^4.3.3",
     "ionicons": "^7.0.0",
+    "postcss": "^8.5.26",
     "rxjs": "~7.8.0",
+    "tailwindcss": "^4.3.3",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
   },

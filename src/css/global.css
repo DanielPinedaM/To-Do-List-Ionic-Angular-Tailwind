@@ -1,0 +1,7 @@
+/* Ionic */
+@import "@ionic/angular/css/core.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/display.css";
+
+/* Tailwind */
+@import "tailwindcss";
