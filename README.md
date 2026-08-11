@@ -235,6 +235,14 @@ En produccion siempre es recomendable usar versiones estables porque usar las ul
 ## ¿Como Usar Juntos CSS, Tailwind e Ionic?
 Tailwind **NO** puede acceder al shadow dom
 
+Tailwind hace que no sea necesario importar esto en global.scss
+
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
 [CSS Nesting](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Nesting)
 
 CREO QUE NO SE PUEDE ACCEDER AL SHADOW DOM USANDO CSS NESTING
