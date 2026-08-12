@@ -186,6 +186,26 @@ para activar o desactivar una característica específica de la aplicación.
 > * Proporciona una breve demostración de cómo el feature flag afecta la
 funcionalidad de la aplicación."
 
+Basicamente es un servicio de Firebase para activar y desactivar features sin publicar nuevas versiones en las apps stores
+
+Crear nuevo proyecto en Firebase:
+
+![1_crear_proyecto](/docs/img/firebase_remote_config/1_crear_proyecto.png)
+
+Crear parametro que sirve para ocultar y mostrar el boton que elimina las categorias ubicado en el componente
+
+```txt
+src\app\features\to-do\categories\components\list-categories-on-cards\list-categories-on-cards.component.html
+```
+
+![2_crear_parametro](/docs/img/firebase_remote_config/2_crear_parametro.png)
+
+![3_parametro_guardado](/docs/img/firebase_remote_config/3_parametro_guardado.png)
+
+Publicar cambios
+
+![4_publicar_cambios](/docs/img/firebase_remote_config/4_publicar_cambios.png)
+
 # 🪾 Versionamiento de la Aplicación con Git y GitHub
 > "Versionar la aplicación demo en un repositorio de Git:
 >
