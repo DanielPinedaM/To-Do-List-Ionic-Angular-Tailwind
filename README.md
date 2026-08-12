@@ -95,6 +95,8 @@ Reemplazando `X.X` por los numeros de la direccion IP
 >
 > * Proporciona los archivos exportados para la evaluación final."
 
+> "4. Archivos APK e IPA generados a partir de la aplicación demo."
+
 El APK esta en este repositorio, en la carpeta INCOMPLETO - AQUI ESCRIBIR EN CUAL CARPETA ESTA
 
 Los pasos siempre son iguales, lo que cambia son los comandos, dependiendo si estas en Windows para Android o macOS para iOS:
@@ -370,6 +372,9 @@ Las explico en el ["🎥 Vídeo"](https://youtu.be/8itIn1s2cbk)
 # Validaciones de Formilarios
 Las validaciones las explico en el ["🎥 Vídeo"](https://youtu.be/8itIn1s2cbk)
 
+# Experiencia de Usuario
+En el ["🎥 Vídeo"](https://youtu.be/8itIn1s2cbk) explico como hice la maquetacion para mejorar la UX
+
 # Preguntas
 > "3. Respuestas a las siguientes preguntas:"
 
@@ -386,6 +391,8 @@ Si se guarda una nueva tarea entonces el estado tiene que ser reactivo para iter
 > * La carga inicial de la aplicación.
 > * El manejo eficiente de grandes cantidades de tareas.
 > * La minimización del uso de memoria."
+
+> "Rendimiento: La aplicación debe ser rápida y eficiente en el manejo de datos."
 
 > "¿Qué técnicas de optimización de rendimiento aplicaste y por qué?"
 
@@ -408,6 +415,31 @@ Esto signifca que la paginacion en este proyecto este mal, significa que como no
 
 ### Estados con Signals
 **¿Por que?** Mejora el renderizado, permite que Angular sepa exactamente que estado cambio y cuales son los estados que dependen entre si
+
+### Calidad
+> "¿Cómo aseguraste la calidad y mantenibilidad del código?"
+1. **Responsabilidad unica:** Ejemplo: El metodo para guardar tareas (CreateTask en task-crud.service) debe solamente guardar tareas, NO guardar y ademas actualizar
+
+Cuando mesclas muchas responsabilidades en un mismo metodo terminas con un monton de `if else` para validar ¿donde y cual proceso ejecutar?, y al final tienes codigo que "nadie quiere tocar" porque cualquier modifcacion es muy probable de que rompa la app
+
+Tener responsabiliades unicas garantiza de que solamente se modifique un proceso en especifico
+
+2. **Componentizar:** Dividir cada parte de la app en componentes.
+
+**Ejemplo:**
+list-categories-on-cards lista las categorias, en cambio list-tasks-on-cards lista las tareas
+
+Similar a como sucede en el punto 1 anterior. Cuando escribes todo el codigo en un componente ocasionas que al modificar ese componente "enorme" sea facil introducir errores
+
+3. Separar los estilos CSS de la siguiente forma:
+
+* **Tailwind** Para los estilos de cada uno de los componentes
+
+* **Ionic** con etiquetas como ion-header, ion-content y ion-footer como contenedores padres para posicionar elementos en mobile, y ademas para formularios usando por ejemplo ion-text
+
+* **CSS** Para estilos globales, CSS custom propierties y acceder al shadow dom
+
+Esto evita que los estilos se sobrescriban debido a la [especificidad](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascade/Specificity), [herencia y cascada](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts)
 
 # 🧠 Justificación de Desiciones Tecnicas
 > "En general el uso de la versión de angular y los  features relacionados a cada uno como Signals, RxJs, ngmodules, Standalone, etc. Son criterio del desarrollador, ya que la idea es buscar elementos de optimización en el rendimiento y son parte de la prueba como decisiones técnicas tomadas por el candidato, por esa razon no se especifican requerimientos técnicos detallados."
@@ -447,23 +479,6 @@ En produccion siempre es recomendable usar versiones estables porque usar las ul
 ## ¿Porque Uso Reactive Forms y NO Signal Forms?
 
 ## ¿Porque uso [Reactive Forms (`FormGroup`)](https://angular.dev/guide/forms/reactive-forms) y NO [Forms with signals](https://angular.dev/essentials/signal-forms)?
-
-## ¿Porque Uso CSS y Tailwind y NO Sass ni Bootstrap?
-
-## ¿Como Usar Juntos CSS, Tailwind e Ionic?
-Tailwind **NO** puede acceder al shadow dom
-
-Tailwind hace que no sea necesario importar esto en global.scss
-
-@import "@ionic/angular/css/padding.css";
-@import "@ionic/angular/css/float-elements.css";
-@import "@ionic/angular/css/text-alignment.css";
-@import "@ionic/angular/css/text-transformation.css";
-@import "@ionic/angular/css/flex-utils.css";
-
-[CSS Nesting](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Nesting)
-
-CREO QUE NO SE PUEDE ACCEDER AL SHADOW DOM USANDO CSS NESTING
 
 ## ¿Porque standalone components y no ngModules (`app.module.ts`)?
 
