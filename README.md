@@ -194,18 +194,30 @@ Para hacer commits use la [extension conventional commits de VS Code](https://ma
 | wip           | 🚧 | Código o cambios no terminados (working in progress)            |
 | merge         | 🔀 | Mesclar ramas (`git merge`) y solucion de conflictos              |
 
+## Ver Historial de Commits
 Hay dos formas de ver los commits:
 1. [Dando click aqui **en GitHub**](https://github.com/DanielPinedaM/To-Do-List-Ionic-Angular-Tailwind/commits/main/)
 
 ![commit-en-git-hub](/docs/img/git-commit/en-git-hub.png)
 
-2. **En git**, Ejecutando en la carpeta raiz del proyecto
+2. **En git**, ejecutando en la carpeta raiz del proyecto
 
 ```console
 git log --oneline
 ```
 
-![commit-en-git](/docs/img/git-commit/en-git.png)
+## Commit Inicial
+1. Para cambiar el HEAD de Git al primer commit ejecutar:
+
+```console
+git checkout c28ba79526c445e61dbcff3a9a904449c8a864b8
+```
+
+`c28ba79526c445e61dbcff3a9a904449c8a864b8` es el hash del primer commit
+
+2. Tambien lo puedes ver en Github:
+
+![commit-inicial](/docs/img/git-commit/commit-inicial.png)
 
 # Persistencia de datos
 > "utiliza almacenamiento local para guardar el estado de las tareas"
