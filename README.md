@@ -97,8 +97,6 @@ Reemplazando `X.X` por los numeros de la direccion IP
 
 > "4. Archivos APK e IPA generados a partir de la aplicación demo."
 
-El APK esta en este repositorio, en la carpeta INCOMPLETO - AQUI ESCRIBIR EN CUAL CARPETA ESTA
-
 Los pasos siempre son iguales, lo que cambia son los comandos, dependiendo si estas en Windows para Android o macOS para iOS:
 
 1. `build` compila la aplicacion Angular a archivos estaticos
