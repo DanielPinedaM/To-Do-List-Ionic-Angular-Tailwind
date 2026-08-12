@@ -46,7 +46,7 @@ fnm use 24.0.0
 ```
 
 ## 📦 Instalar Paquetes
-Esto va a instalar Ionic, Capacitor, Angular y Tailwind
+Esto va a instalar Ionic, Capacitor, Angular y Tailwind:
 
 ```console
 npm i
