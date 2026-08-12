@@ -15,13 +15,16 @@
             <ion-icon slot="icon-only" name="create-outline"></ion-icon>
           </ion-button>
 
-          <ion-button
-            slot="end"
-            color="secondary"
-            (click)="onClickDeleteCategorieById(category.id)"
-          >
-            <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
-          </ion-button>
+          <!-- Firebase Remote Config Feature Flag -->
+          @if (remoteConfigService.showDeleteCategoryById()) {
+            <ion-button
+              slot="end"
+              color="secondary"
+              (click)="onClickDeleteCategorieById(category.id)"
+            >
+              <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+            </ion-button>
+          }
         </div>
       </ion-item>
     }

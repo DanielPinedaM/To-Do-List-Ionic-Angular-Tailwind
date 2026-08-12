@@ -188,15 +188,19 @@ funcionalidad de la aplicación."
 
 Basicamente es un servicio de Firebase para activar y desactivar features sin publicar nuevas versiones en las apps stores
 
-Crear nuevo proyecto en Firebase:
-
-![1_crear_proyecto](/docs/img/firebase_remote_config/1_crear_proyecto.png)
-
-Crear parametro que sirve para ocultar y mostrar el boton que elimina las categorias ubicado en el componente
+Configure una feature flag para mostrar y ocultar el boton de eliminar categorias ubicado en el componente.
 
 ```txt
 src\app\features\to-do\categories\components\list-categories-on-cards\list-categories-on-cards.component.html
 ```
+
+El boton es el que señalo de rojo:
+
+![boton_eliminar](/docs/img/firebase_remote_config/boton_eliminar.png)
+
+Crear nuevo proyecto en Firebase:
+
+![1_crear_proyecto](/docs/img/firebase_remote_config/1_crear_proyecto.png)
 
 ![2_crear_parametro](/docs/img/firebase_remote_config/2_crear_parametro.png)
 
@@ -223,6 +227,15 @@ npm install firebase
 La app ya se encuentra registrada
 
 ![8_app_registrada.png](/docs/img/firebase_remote_config/8_app_registrada.png)
+
+En `src\app\config\firebase` y `src\main.ts` cofigure firebase
+
+Llamadas a la API de firebase:
+
+![9_api_firebase.png](/docs/img/firebase_remote_config/9_api_firebase.png)
+
+> [!IMPORTANT]
+> En el "🎥 Vídeo" demuestro que la feature flag si funciona. Estas capturas de pantalla son solamente para mostrar la configuracion de Firebase.
 
 # 🪾 Versionamiento de la Aplicación con Git y GitHub
 > "Versionar la aplicación demo en un repositorio de Git:

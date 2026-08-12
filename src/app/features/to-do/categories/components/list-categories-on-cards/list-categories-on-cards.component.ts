@@ -11,6 +11,7 @@ import {
 import { Categories } from "@/app/features/to-do/categories/interfaces/categories.interface";
 import { CategoriesCrudService } from "@/app/features/to-do/categories/services/categories-crud.service";
 import { CategoriesStore } from "@/app/features/to-do/categories/services/stores/categories.store";
+import { RemoteConfigService } from "@/app/config/firebase/remote-config.service";
 
 @Component({
   selector: "app-list-categories-on-cards",
@@ -18,6 +19,7 @@ import { CategoriesStore } from "@/app/features/to-do/categories/services/stores
   imports: [IonButton, IonIcon, IonItem, IonLabel, IonList],
 })
 export class ListCategoriesOnCardsComponent {
+  remoteConfigService = inject(RemoteConfigService);
   private categoriesStore = inject(CategoriesStore);
   private categoriesCrudService = inject(CategoriesCrudService);
   private alertController = inject(AlertController);
@@ -27,6 +29,13 @@ export class ListCategoriesOnCardsComponent {
   categories = computed<Categories[]>(() =>
     this.categoriesStore.getCategories(),
   );
+
+  ngOnInit(): void {
+    console.log(
+      "Feature Flag - ¿mostrar boton de eliminar categoria? ",
+      this.remoteConfigService.showDeleteCategoryById(),
+    );
+  }
 
   onClickEditCategorie(category: Categories): void {
     this.editCategory.emit(category);
