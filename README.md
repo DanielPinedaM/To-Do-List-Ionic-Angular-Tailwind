@@ -13,7 +13,11 @@ A continuación, voy a citar textualmente cada uno de los enunciados del PDF que
 # ▶️ ¿Como Ejecutar Aplicación en Local Host?
 > "incluyendo un archivo README que explique cómo ejecutar la aplicación"
 
-Siempre, antes de ejecutar cualquier comando, primero tienes que situar la terminal en la carpeta raiz donde hiciste pull del proyecto:
+```console
+git clone https://github.com/DanielPinedaM/To-Do-List-Ionic-Angular-Tailwind.git
+```
+
+Siempre, antes de ejecutar cualquier comando, primero tienes que situar la terminal en la carpeta raiz donde hiciste `git clone` del proyecto:
 
 ```console
 cd ruta/a/carpeta/raiz/del/proyecto
