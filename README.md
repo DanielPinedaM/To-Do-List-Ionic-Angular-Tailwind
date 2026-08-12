@@ -231,15 +231,15 @@ git checkout c28ba79526c445e61dbcff3a9a904449c8a864b8
 
 ![commit-inicial](/docs/img/git-commit/commit-inicial.png)
 
-# Persistencia de datos
-> "utiliza almacenamiento local para guardar el estado de las tareas"
-
 ## Aclaración
 De forma intencional hice muchos commits, la razon es que cada vez que algo me funcionaba hacia commit para "guardar" los cambios, pero en un desarrollo real de producción lo correcto para no "ensuciar" el historial de Git es:
 
 > 1 feature = 1 commit
 
- Hacer un commit por cada feature o bug solucionado.
+Hacer un commit por cada feature o bug solucionado.
+
+# Persistencia de datos
+> "utiliza almacenamiento local para guardar el estado de las tareas"
 
 # Categorías Dinámicas
 
