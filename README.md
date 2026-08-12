@@ -176,6 +176,16 @@ Dentro de Xcode generar el IPA
 
 # 📁 Estructura del Proyecto
 
+# 🚩 Firebase Remote Config Feature Flag
+> "3. Implementación de Firebase y Remote Config
+>
+> Implementa Firebase y Remote Config:
+> * Configura Firebase en la aplicación desde una cuenta personal.
+> * Implementa una funcionalidad de feature flag utilizando Remote Config
+para activar o desactivar una característica específica de la aplicación.
+> * Proporciona una breve demostración de cómo el feature flag afecta la
+funcionalidad de la aplicación."
+
 # 🪾 Versionamiento de la Aplicación con Git y GitHub
 > "Versionar la aplicación demo en un repositorio de Git:
 >
