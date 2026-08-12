@@ -54,7 +54,7 @@ fnm use 24.0.0
 ```
 
 ## 📦 Instalar Paquetes
-Esto va a instalar Ionic, Capacitor, Angular, Tailwind y firebase SDK:
+Esto va a instalar Ionic, Capacitor, Angular, Tailwind y firebase:
 
 ```console
 npm i
@@ -293,7 +293,7 @@ Registrar app web
 
 ![6_registrar_app](/docs/img/firebase_remote_config/6_registrar_app.png)
 
-Instalar SDK de firebase:
+Instalar firebase:
 
 ```console
 npm install firebase
@@ -305,7 +305,7 @@ La app ya se encuentra registrada
 
 ![8_app_registrada.png](/docs/img/firebase_remote_config/8_app_registrada.png)
 
-En `src\app\config\firebase` y `src\main.ts` cofigure firebase
+En [`src\app\config\firebase`](https://github.com/DanielPinedaM/To-Do-List-Ionic-Angular-Tailwind/tree/main/src/app/config/firebase) y [`src\main.ts`](https://github.com/DanielPinedaM/To-Do-List-Ionic-Angular-Tailwind/blob/main/src/main.ts) cofigure firebase
 
 Llamadas a la API de firebase:
 
@@ -479,35 +479,63 @@ En programación no existe una respuesta correcta o incorrecta, siempre existen 
 * Node.js 24.0.0
 
 ## Angular Moderno VS Angular Legacy
+Angular a partir de la version 17 ha lanzado breaking change importantes. Esta es la lista de los principales breaking change
 
-## ¿Porque NO Uso las Últimas Versiones de Angular, TypeScript y Node.js?
+A partir de Angular 17 se han lanzado breaking changes. Esta tabla la tuve en cuenta para hacer la app
+
+| Nombre de la feature        | Angular Moderno                                                                             | Angular Legacy                                                                              |
+| --------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| Estados                     | estados con Signals                                                                         | estados sin signals                                                                         |
+| Formularios                 | [Forms with signals](https://angular.dev/essentials/signal-forms)                           | [Reactive Forms (`FormGroup`)](https://angular.dev/guide/forms/reactive-forms)              |
+| input y output              | input y output CON signals importados desde `import { input, output } from '@angular/core'` | input y output SIN signals importados desde `import { Input, Output } from '@angular/core'` |
+| importar componentes        | standalone components                                                                       | ngModules (`app.module.ts`)                                                                 |
+| Control Flow Directives     | `@for`, `@if`, `@switch`, `@case`, `@default`                                               | `*ngFor`, `*ngIf`, `ngSwitch`                                                               |
+| Inyección de dependencias   | `inject()`                                                                                  | constructor injection                                                                       |
+
+## ¿Porque NO Uso la Ultima Versión de Angular?
 Al momento de escribir esto (Agosto 2026)
 
-https://www.npmjs.com/package/@ionic/angular?activeTab=versions
+[Segun documentacion oficial de Ionic](https://ionicframework.com/docs/reference/support#ionic-angular) la ultima version de Ionic para Angular es la 8, que a su vez, es compatible con Angular 20
 
-https://ionicframework.com/docs/reference/support#ionic-angular
+![versiones-ionic](/docs/img/versiones/ionic.png)
 
-https://angular.dev/reference/versions
+[Segun documentacion oficial de Angular](https://angular.dev/reference/versions), la ultima version de Angular es la 22
 
-En produccion siempre es recomendable usar versiones estables porque usar las ultimas versiones puede generar bugs
+![versiones-angular](/docs/img/versiones/angular.png)
 
-## ¿Porque Uso Reactive Forms y NO Signal Forms?
+Debido a que Ionic solo soporta hasta la version 20 de Angular, tube que usar esa version
+
+No use la ultima version (Angular 22) porque en produccion siempre es recomendable usar versiones estables porque usar las ultimas versiones (beta) pueden generar bugs
 
 ## ¿Porque uso [Reactive Forms (`FormGroup`)](https://angular.dev/guide/forms/reactive-forms) y NO [Forms with signals](https://angular.dev/essentials/signal-forms)?
+Los Forms with signals son estables a partir de Angular 22, pero como la ultima version compatible de Ionic con Angular es la 20, por eso no pude usar Forms with signals y tuve que usar Reactive Forms 
 
 ## ¿Porque standalone components y no ngModules (`app.module.ts`)?
+Permite importar los modulos de forma mas organizada
 
-## ¿Porque Uso Estados Globales para las Tareas y Categorías?
-Para evitar **prop drilling**
+Cuando la app crece, `app.module.ts` tiende a convertirse en un archivo gigante lleno de importaciones
 
-No siempre es necesario usar estados globales, **INCOMPLETO**
+## ¿Porque Uso Estados Globales para las Tareas `tasks.store.ts` y Categorías `categories.store.ts`?
+Para evitar prop drilling, es decir, tener que pasar el estado mediante input() a través de varios componentes asi:
+
+> componente padre → componente hijo 1 → componente hijo 2
+
+Los estados globales permiten acceder a los estados directamente usando inyeccion de dependencias, desde cualquier componente sin usar `input`
+
+Esto no quiere decir que siempre es necesario usar estados globales, probablemente si tienes una app sencilla deberias de evitarlos para no agregar complejidad
+
+Los tuve que usar porque cuando empece a crear componentes para separar el flujo de guardar y listar las tareas y categorias, me di cuenta que ambos componentes (de tareas y categorias) necesitan acceder a los mismos estados.
 
 ## ¿Porque Cuando Cree el Proyecto NO Instale Ionic de Forma Global?
+Instalar de forma local en `node_modules` permite tener varios proyectos ionic con diferentes versiones.
+
 La [documentación oficial](https://ionicframework.com/docs/intro/cli#install-the-ionic-cli) recomienda instalar ionic de forma global con la bandera `-g`
 
 ```console
 npm install -g @ionic/cli
 ```
+
+![instalar-ionic](/docs/img/instalar-ionic.png)
 
 Sin embargo, cuando cree el proyecto hice esto:
 
@@ -515,48 +543,65 @@ Sin embargo, cuando cree el proyecto hice esto:
 npx @ionic/cli@latest start to-do blank --type=angular --package-id=com.todo.com --no-git
 ```
 
-* **`npx`**
+* **`npx`** ejecutar @ionic/cli sin instalarlo globalmente
 
-* **`@ionic/cli@latest`**
+* **`@ionic/cli@latest`** usar la ultima version de @ionic/cli
 
 * **`start to-do`** Crea un proyecto llamado "to-do"
 
 * **`blank`** Crea un template en blanco sin estilos
 
-* **`--type=angular`**
+* **`--type=angular`** Crear proyecto de Ionic con Angular
 
-* **`--package-id=com.todo.com`**
+* **`--package-id=com.todo.com`** ID para Android y iOS.
 
-* **`--no-git`**
+* **`--no-git`** no crear respositorio de Git automaticamente
 
 ```console
 cd ruta/a/carpeta/raiz/del/proyecto
 ```
 
+Instalar @ionic/cli como dependencia de desarrollo, dentro del proyecto en local
 ```console
 npm i @ionic/cli --save-dev
 ```
 
+Verificar version de ionic instalada
 ```console
 npx ionic --version
 ```
 
+Instalar capacitor para android
 ```console
 npm i @capacitor/android
 ```
 
+Instalar capacitor para ios
 ```console
 npm i @capacitor/ios
 ```
 
+Instalar capacitor/preferences, necesario para persistir los datos
 ```console
 npm i @capacitor/preferences
 ```
 
-**Razon:**
-Instalar de forma local en `node_modules` permite tener varios proyectos ionic con diferentes versiones.
-
 ## `div` wrapper
+Esta en src\app\app.component.html
+
+```html
+<ion-app>
+  <!-- div wrapper -->
+  <div class="relative mx-auto h-full w-full max-w-4xl">
+    <ion-router-outlet></ion-router-outlet>
+  </div>
+</ion-app>
+```
+
+Es un contenedor padre global que sirve para:
+1. centra en horizontal
+
+2. limita el ancho de toda la aplicacion al tamaño de una tablet
 
 ## 🧪 ¿Porque Borre los Archivos `.spec.ts`?
 Lo hice para simplificar, aunque es buena practica tener test de los procesos criticos de la app.
