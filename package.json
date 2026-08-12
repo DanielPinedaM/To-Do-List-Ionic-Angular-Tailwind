@@ -38,6 +38,7 @@
     "@capacitor/status-bar": "8.0.3",
     "@ionic/angular": "^8.0.0",
     "@tailwindcss/postcss": "^4.3.3",
+    "firebase": "^12.17.1",
     "ionicons": "^7.0.0",
     "postcss": "^8.5.26",
     "rxjs": "~7.8.0",

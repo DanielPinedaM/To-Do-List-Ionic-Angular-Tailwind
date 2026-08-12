@@ -46,7 +46,7 @@ fnm use 24.0.0
 ```
 
 ## 📦 Instalar Paquetes
-Esto va a instalar Ionic, Capacitor, Angular y Tailwind:
+Esto va a instalar Ionic, Capacitor, Angular, Tailwind y firebase SDK:
 
 ```console
 npm i
@@ -205,6 +205,24 @@ src\app\features\to-do\categories\components\list-categories-on-cards\list-categ
 Publicar cambios
 
 ![4_publicar_cambios](/docs/img/firebase_remote_config/4_publicar_cambios.png)
+
+Registrar app web
+
+![5_registrar_app](/docs/img/firebase_remote_config/5_registrar_app.png)
+
+![6_registrar_app](/docs/img/firebase_remote_config/6_registrar_app.png)
+
+Instalar SDK de firebase:
+
+```console
+npm install firebase
+```
+
+![7_SDK_firebase](/docs/img/firebase_remote_config/7_SDK_firebase.png)
+
+La app ya se encuentra registrada
+
+![8_app_registrada.png](/docs/img/firebase_remote_config/8_app_registrada.png)
 
 # 🪾 Versionamiento de la Aplicación con Git y GitHub
 > "Versionar la aplicación demo en un repositorio de Git:
