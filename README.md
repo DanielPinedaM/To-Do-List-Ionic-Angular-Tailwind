@@ -29,7 +29,7 @@ Reemplazar `ruta/a/carpeta/raiz/del/proyecto` por la carpeta raiz del proyecto
 Este proyecto usa `npm` y `package-lock.json`
 
 ## 🟢 Administrador de Versiones para Node.js
-Este proyecto usa Node.js 24.0.0. Esto significa que todos los comandos para hacer build y ejecutar proyecto se tienen que ejecutar con Node.js 24.0.0
+Este proyecto usa Node.js 24.0.0. Esto significa que todos los comandos para hacer build, generar APK y ejecutar proyecto se tienen que ejecutar con Node.js 24.0.0
 
 Instalar Node.js 24.0.0
 
@@ -37,7 +37,7 @@ Instalar Node.js 24.0.0
 fnm install 24.0.0
 ```
 
-En la carpeta raiz del proyecto hay un archivo `.nvmrc` que si tiene instalado `fnm` o `nvm`, cambia la versión de Node.js automaticamente.
+En la carpeta raiz del proyecto hay un archivo [`.nvmrc`](https://github.com/DanielPinedaM/To-Do-List-Ionic-Angular-Tailwind/blob/main/.nvmrc) que si tiene instalado `fnm` o `nvm`, cambia la versión de Node.js automaticamente.
 
 Por lo tanto, cada vez que abras la terminal en la ruta del proyecto, no es necesario ejecutar:
 
@@ -46,6 +46,7 @@ fnm use 24.0.0
 ```
 
 ## 📦 Instalar Paquetes
+Esto va a instalar Ionic, capacitor, Angular y Tailwind
 
 ```console
 npm i
