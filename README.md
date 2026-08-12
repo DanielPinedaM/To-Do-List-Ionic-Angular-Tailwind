@@ -234,6 +234,13 @@ git checkout c28ba79526c445e61dbcff3a9a904449c8a864b8
 # Persistencia de datos
 > "utiliza almacenamiento local para guardar el estado de las tareas"
 
+## Aclaración
+De forma intencional hice muchos commits, la razon, cada vez que algo me funcionaba hacia commit para "guardar" los cambios, pero en un desarrollo real de producción lo correcto es:
+
+> 1 feature = 1 commit
+
+Hacer un commit por cada feature o bug solucionado
+
 # Categorías Dinámicas
 
 # Validaciones
