@@ -5,7 +5,7 @@ Hola, ¿Como estas?. Soy Daniel Pineda.
 
 Agradezco mucho tu tiempo para que por favor veas el video y leas el markdown. Esto va permitir demostrarte mis conocimientos.
 
-A continuación, voy a citar textualmente cada uno de los enunciados del PDF que tiene la prueba tecnica y seguido de ello voy a dar la respuesta.
+A continuación, voy a citar textualmente cada uno de los [enunciados del PDF](https://github.com/DanielPinedaM/To-Do-List-Ionic-Angular-Tailwind/blob/main/docs/prueba_tecnica_desarrollador_movil_frontend.pdf) que tiene la prueba tecnica y seguido de ello voy a dar la respuesta.
 
 # 🎥 Vídeo
 > "Capturas de pantalla o grabaciones de video que muestren las nuevas funcionalidades en acción."
