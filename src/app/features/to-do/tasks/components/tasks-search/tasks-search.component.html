@@ -1,1 +1,17 @@
-<h1>tasks-search</h1>
+<form [formGroup]="searchForm">
+  <ion-list class="grid grid-cols-1 gap-2">
+    <ion-item>
+      <ion-select
+        [multiple]="true"
+        label="Filtrar por categoria"
+        labelPlacement="floating"
+        placeholder="Todas las categorias"
+        formControlName="categoriesIds"
+      >
+        @for (category of categories(); track category.id) {
+          <ion-select-option [value]="category.id">{{ category.description }}</ion-select-option>
+        }
+      </ion-select>
+    </ion-item>
+  </ion-list>
+</form>

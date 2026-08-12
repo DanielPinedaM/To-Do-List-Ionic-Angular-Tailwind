@@ -11,21 +11,39 @@
 <ion-content>
   <div class="flex flex-col gap-6 p-4">
     <section class="flex flex-col gap-2">
-      <h2 class="text-lg font-semibold">Categorias</h2>
+      <h2 class="text-xl font-bold">Categorias</h2>
 
-      <app-form-edit-save-categories></app-form-edit-save-categories>
+      <app-form-edit-save-categories
+        [categoryToEdit]="categoryToEdit()"
+        (categorySaved)="onCategorySaved()"
+      ></app-form-edit-save-categories>
 
-      <app-list-categories-on-cards></app-list-categories-on-cards>
+      <app-list-categories-on-cards
+        (editCategory)="onEditCategory($event)"
+      ></app-list-categories-on-cards>
     </section>
 
     <section class="flex flex-col gap-2">
-      <h2 class="text-lg font-semibold">Tareas</h2>
+      <h2 class="text-xl font-bold">Tareas</h2>
 
-      <app-tasks-search></app-tasks-search>
+      @if (hasTasks()) {
+        <app-tasks-search
+          (categoriesIdsFilterChange)="onCategoriesIdsFilterChange($event)"
+        ></app-tasks-search>
 
-      <app-form-edit-save-tasks></app-form-edit-save-tasks>
+        <!-- aqui se pueden agregar mas componentes con filtros de busqueda -->
+      }
 
-      <app-list-tasks-on-cards></app-list-tasks-on-cards>
+      <app-form-edit-save-tasks
+        [taskToEdit]="taskToEdit()"
+        (taskSaved)="onTaskSaved()"
+      ></app-form-edit-save-tasks>
+
+      <app-list-tasks-on-cards
+        [filteredTasks]="filteredTasks()"
+        [selectedCategoriesIds]="selectedCategoriesIds()"
+        (editTask)="onEditTask($event)"
+      ></app-list-tasks-on-cards>
     </section>
   </div>
 </ion-content>

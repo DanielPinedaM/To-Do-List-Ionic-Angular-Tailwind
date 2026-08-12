@@ -45,6 +45,12 @@
       @if (submitted() && categoryControl.hasError("required")) {
         <p class="text-sm">La categoria es obligatoria</p>
       }
+
+      @if (!hasCategories()) {
+        <p class="text-sm">
+          Cree al menos una categoria antes de guardar tareas
+        </p>
+      }
     </div>
 
     <ion-item>
@@ -52,5 +58,7 @@
     </ion-item>
   </ion-list>
 
-  <ion-button type="submit" expand="block">Guardar</ion-button>
+  <ion-button type="submit" expand="block" [disabled]="!hasCategories()"
+    >Guardar</ion-button
+  >
 </form>

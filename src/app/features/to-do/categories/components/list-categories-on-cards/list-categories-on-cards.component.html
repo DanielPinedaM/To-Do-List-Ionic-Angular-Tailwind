@@ -1,1 +1,29 @@
-<h1>list-categories-on-cards</h1>
+@if (categories().length === 0) {
+  <p class="p-2 text-center">No hay categorias, agregue una nueva categoria</p>
+} @else {
+  <ion-list class="flex flex-col gap-2">
+    @for (category of categories(); track category.id) {
+      <ion-item>
+        <ion-label>{{ category.description }}</ion-label>
+
+        <div class="flex gap-5">
+          <ion-button
+            slot="end"
+            color="secondary"
+            (click)="onClickEditCategorie(category)"
+          >
+            <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+          </ion-button>
+
+          <ion-button
+            slot="end"
+            color="secondary"
+            (click)="onClickDeleteCategorieById(category.id)"
+          >
+            <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+          </ion-button>
+        </div>
+      </ion-item>
+    }
+  </ion-list>
+}
