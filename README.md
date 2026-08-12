@@ -144,7 +144,7 @@ android/app/build/outputs/apk/debug/app-debug.apk
 > [!IMPORTANT]
 > La carpeta `android` **NO** existe en el repositorio. El APK esta subido en el repositorio. Para **descargar** el APK debes abrir la siguiente ruta del proyecto:
 
-[apk/app-debug.apk]()
+[apk/app-debug.apk](https://github.com/DanielPinedaM/To-Do-List-Ionic-Angular-Tailwind/tree/main/apk)
 
 ![notificacion](/docs/img/apk/descargar_apk.png)
 
