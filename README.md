@@ -13,6 +13,7 @@ A continuación, voy a citar textualmente cada uno de los [enunciados del PDF](h
 > "Capturas de pantalla o grabaciones de video que muestren las nuevas funcionalidades en acción."
 
 El video esta en el siguiente enlace de YouTube:
+
 [https://youtu.be/8itIn1s2cbk](https://youtu.be/8itIn1s2cbk)
 
 # ▶️ ¿Como Ejecutar Aplicación en Local Host?
@@ -86,6 +87,13 @@ Reemplazando `X.X` por los numeros de la direccion IP
 
 ## 📱 ¿Como Generar APK e IPA?
 > "En cuanto al archivo IPA, no hay problema que no lo presente, desde que si haga envío del APK"
+
+> "5. Exportación de APK e IPA
+> • Exporta un APK e IPA con la demo:
+>
+> * Genera un archivo APK para Android y un archivo IPA para iOS con la aplicación demo configurada.
+>
+> * Proporciona los archivos exportados para la evaluación final."
 
 El APK esta en este repositorio, en la carpeta INCOMPLETO - AQUI ESCRIBIR EN CUAL CARPETA ESTA
 
@@ -363,6 +371,14 @@ Las explico en el ["🎥 Vídeo"](https://youtu.be/8itIn1s2cbk)
 Las validaciones las explico en el ["🎥 Vídeo"](https://youtu.be/8itIn1s2cbk)
 
 # Optimización de Rendimiento
+> "4. Optimización de Rendimiento
+>
+> * Optimizar la aplicación para mejorar el rendimiento, considerando:
+> * La carga inicial de la aplicación.
+> * El manejo eficiente de grandes cantidades de tareas.
+> * La minimización del uso de memoria."
+
+Cada uno de los siguientes subtitulos explica las optimizaciones de rendimiento que hice:
 
 ## Infinite Scroll
 Use [ion-infinite-scroll](https://ionicframework.com/docs/api/infinite-scroll) y [ion-infinite-scroll-content](https://ionicframework.com/docs/api/infinite-scroll-content) para **simular** con un `setTimeout()` la carga de las tareas al hacer scroll vertical
@@ -377,7 +393,8 @@ La diferencia es que en este proyecto los datos siempre estan guardados en el fr
 
 Esto signifca que la paginacion en este proyecto este mal, significa que como no existen peticiones HTTP, entonces no es posible guardar en el estado las N tareas visibles por el usuario al hacer scroll
 
-## Signals
+## Estados con Signals
+Mejora el renderizado, permite que Angular sepa exactamente que estado cambio y cuales son los estados que dependen entre si
 
 # 🧠 Justificación de Desiciones Tecnicas
 > "En general el uso de la versión de angular y los  features relacionados a cada uno como Signals, RxJs, ngmodules, Standalone, etc. Son criterio del desarrollador, ya que la idea es buscar elementos de optimización en el rendimiento y son parte de la prueba como decisiones técnicas tomadas por el candidato, por esa razon no se especifican requerimientos técnicos detallados."
