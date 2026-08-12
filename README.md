@@ -146,7 +146,7 @@ android/app/build/outputs/apk/debug/app-debug.apk
 
 [apk/app-debug.apk](https://github.com/DanielPinedaM/To-Do-List-Ionic-Angular-Tailwind/tree/main/apk)
 
-![notificacion](/docs/img/apk/descargar_apk.png)
+![descargar_apk](/docs/img/apk/descargar_apk.png)
 
 ## iOS
 Desde un macOS  con Xcode instalado
@@ -176,15 +176,30 @@ Dentro de Xcode generar el IPA
 
 # 📁 Estructura del Proyecto
 
-# Versionamiento de la Aplicación con Git y GitHub
+# 🪾 Versionamiento de la Aplicación con Git y GitHub
 > "Versionar la aplicación demo en un repositorio de Git:
 >
 > * Crea un repositorio público en GitHub o GitLab.
 > * Sube la aplicación base al repositorio y realiza un commit inicial"
 
-Para hacer commits use la [extension conventional commits de VS Code](https://marketplace.visualstudio.com/items?itemName=vivaxy.vscode-conventional-commits)
+Para hacer commits use la [extension conventional commits de VS Code](https://marketplace.visualstudio.com/items?itemName=vivaxy.vscode-conventional-commits) que permite hacer commits semanticos. Los tipos de commits mas usados son:
 
-Puedes ver los commits [aqui en GitHub](https://github.com/DanielPinedaM/To-Do-List-Ionic-Angular-Tailwind/commits/main/) o ejecutando en la carpeta raiz del proyecto
+| Tipo de commit | Emoji | Definición                                                  |
+| ------------- | --- | -------------------------------------------------------------- |
+| feat          | ✨ | Nueva funcionalidad (feature)                                   |
+| fix           | 🐛 | Corrección de errores (bugs)                                    |
+| style         | 💄 | Cambios de maquetacion o diseño (CSS, Tailwind, etiquetas HTML) |
+| docs          | 📝 | Cambios de documentación (README.md)                            |
+| refactor      | ♻️ | Refactorizacion: Mejorar legibilidad en el código               |
+| wip           | 🚧 | Código o cambios no terminados (working in progress)            |
+| merge         | 🔀 | Mesclar ramas (git merge) y solucion de conflictos              |
+
+Hay dos formas de ver los commits:
+1. [Dando click aqui en GitHub](https://github.com/DanielPinedaM/To-Do-List-Ionic-Angular-Tailwind/commits/main/)
+
+![commits](/docs/img/commits.png)
+
+2. Ejecutando en la carpeta raiz del proyecto
 
 ```console
 git log --oneline
@@ -195,7 +210,10 @@ git log --oneline
 
 # Categorías Dinámicas
 
-# Validaciones de formularios
+# Validaciones
+INCOMPLETO - aqui explicar q validaciones hice
+
+## Validaciones de formularios
 
 ## Mostrar filtros cuando SI hay tareas
 
@@ -231,9 +249,6 @@ No signifca que la paginacion en este proyecto este mal
 signifca que **INCOMPLETO**
 
 ## Signals
-
-# Validaciones
-INCOMPLETO - aqui explicar q validaciones hice
 
 # 🧠 Justificación de Desiciones Tecnicas
 > "En general el uso de la versión de angular y los  features relacionados a cada uno como Signals, RxJs, ngmodules, Standalone, etc. Son criterio del desarrollador, ya que la idea es buscar elementos de optimización en el rendimiento y son parte de la prueba como decisiones técnicas tomadas por el candidato, por esa razon no se especifican requerimientos técnicos detallados."
@@ -272,6 +287,8 @@ En produccion siempre es recomendable usar versiones estables porque usar las ul
 
 ## ¿Porque Uso Reactive Forms y NO Signal Forms?
 
+## ¿Porque uso [Reactive Forms (`FormGroup`)](https://angular.dev/guide/forms/reactive-forms) y NO [Forms with signals](https://angular.dev/essentials/signal-forms)?
+
 ## ¿Porque Uso CSS y Tailwind y NO Sass ni Bootstrap?
 
 ## ¿Como Usar Juntos CSS, Tailwind e Ionic?
@@ -291,14 +308,10 @@ CREO QUE NO SE PUEDE ACCEDER AL SHADOW DOM USANDO CSS NESTING
 
 ## ¿Porque standalone components y no ngModules (`app.module.ts`)?
 
-## ¿Porque uso [`FormGroup` (Reactive Forms)](https://angular.dev/guide/forms/reactive-forms) y NO [Forms with signals](https://angular.dev/essentials/signal-forms)?
-
-## ¿Porque Uso Estados Globales?
-prop drilling
+## ¿Porque Uso Estados Globales para las Tareas y Categorías?
+Para evitar **prop drilling**
 
 No siempre es necesario usar estados globales, **INCOMPLETO**
-
-## `div` wrapper
 
 ## ¿Porque Cuando Cree el Proyecto NO Instale Ionic de Forma Global?
 La [documentación oficial](https://ionicframework.com/docs/intro/cli#install-the-ionic-cli) recomienda instalar ionic de forma global con la bandera `-g`
@@ -353,6 +366,8 @@ npm i @capacitor/preferences
 
 **Razon:**
 Instalar de forma local en `node_modules` permite tener varios proyectos ionic con diferentes versiones.
+
+## `div` wrapper
 
 ## 🧪 ¿Porque Borre los Archivos `.spec.ts`?
 Lo hice para simplificar, aunque es buena practica tener test de los procesos criticos de la app.
