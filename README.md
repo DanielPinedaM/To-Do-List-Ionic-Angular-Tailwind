@@ -192,18 +192,20 @@ Para hacer commits use la [extension conventional commits de VS Code](https://ma
 | docs          | 📝 | Cambios de documentación (README.md)                            |
 | refactor      | ♻️ | Refactorizacion: Mejorar legibilidad en el código               |
 | wip           | 🚧 | Código o cambios no terminados (working in progress)            |
-| merge         | 🔀 | Mesclar ramas (git merge) y solucion de conflictos              |
+| merge         | 🔀 | Mesclar ramas (`git merge`) y solucion de conflictos              |
 
 Hay dos formas de ver los commits:
-1. [Dando click aqui en GitHub](https://github.com/DanielPinedaM/To-Do-List-Ionic-Angular-Tailwind/commits/main/)
+1. [Dando click aqui **en GitHub**](https://github.com/DanielPinedaM/To-Do-List-Ionic-Angular-Tailwind/commits/main/)
 
-![commits](/docs/img/commits.png)
+![commit-en-git-hub](/docs/img/git-commit/en-git-hub.png)
 
-2. Ejecutando en la carpeta raiz del proyecto
+2. **En git**, Ejecutando en la carpeta raiz del proyecto
 
 ```console
 git log --oneline
 ```
+
+![commit-en-git](/docs/img/git-commit/en-git.png)
 
 # Persistencia de datos
 > "utiliza almacenamiento local para guardar el estado de las tareas"
