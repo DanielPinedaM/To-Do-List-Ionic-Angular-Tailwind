@@ -370,7 +370,16 @@ Las explico en el ["🎥 Vídeo"](https://youtu.be/8itIn1s2cbk)
 # Validaciones de Formilarios
 Las validaciones las explico en el ["🎥 Vídeo"](https://youtu.be/8itIn1s2cbk)
 
-# Optimización de Rendimiento
+# Preguntas
+> "3. Respuestas a las siguientes preguntas:"
+
+## ¿Cuáles fueron los principales desafíos que enfrentaste al implementar las nuevas funcionalidades?
+Sincronizar los estados que guardar las tareas y categorias con @capacitor/preferences. 
+
+**Ejemplo:**
+Si se guarda una nueva tarea entonces el estado tiene que ser reactivo para iterarse y mostrarse en la UI, pero al mismo tiempo se tiene que guardar en @capacitor/preferences, por lo tanto las tareas en @capacitor/preferences y el estado siempre deberian ser las mismas
+
+## Optimización de Rendimiento
 > "4. Optimización de Rendimiento
 >
 > * Optimizar la aplicación para mejorar el rendimiento, considerando:
@@ -378,9 +387,11 @@ Las validaciones las explico en el ["🎥 Vídeo"](https://youtu.be/8itIn1s2cbk)
 > * El manejo eficiente de grandes cantidades de tareas.
 > * La minimización del uso de memoria."
 
+> "¿Qué técnicas de optimización de rendimiento aplicaste y por qué?"
+
 Cada uno de los siguientes subtitulos explica las optimizaciones de rendimiento que hice:
 
-## Infinite Scroll
+### Infinite Scroll
 Use [ion-infinite-scroll](https://ionicframework.com/docs/api/infinite-scroll) y [ion-infinite-scroll-content](https://ionicframework.com/docs/api/infinite-scroll-content) para **simular** con un `setTimeout()` la carga de las tareas al hacer scroll vertical
 
 Quiero aclarar que significa "simular":
@@ -393,8 +404,10 @@ La diferencia es que en este proyecto los datos siempre estan guardados en el fr
 
 Esto signifca que la paginacion en este proyecto este mal, significa que como no existen peticiones HTTP, entonces no es posible guardar en el estado las N tareas visibles por el usuario al hacer scroll
 
-## Estados con Signals
-Mejora el renderizado, permite que Angular sepa exactamente que estado cambio y cuales son los estados que dependen entre si
+**¿Por que?** Renderizar solamente los elementos visibles permite que la UI no se bloquee. Tener estados con muchos datos genera lentitud en la app
+
+### Estados con Signals
+**¿Por que?** Mejora el renderizado, permite que Angular sepa exactamente que estado cambio y cuales son los estados que dependen entre si
 
 # 🧠 Justificación de Desiciones Tecnicas
 > "En general el uso de la versión de angular y los  features relacionados a cada uno como Signals, RxJs, ngmodules, Standalone, etc. Son criterio del desarrollador, ya que la idea es buscar elementos de optimización en el rendimiento y son parte de la prueba como decisiones técnicas tomadas por el candidato, por esa razon no se especifican requerimientos técnicos detallados."
