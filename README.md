@@ -369,8 +369,23 @@ Hacer un commit por cada feature o bug solucionado.
 # Categorías Dinámicas
 Las explico en el ["🎥 Vídeo"](https://youtu.be/8itIn1s2cbk)
 
-# Validaciones de Formilarios
+Las categorias no estan quemadas en el frontend. Existe un formulario que permite guardar cualquier nombre de categoria
+
+![form-categorias](/docs/img/form-categorias.png)
+
+# Validaciones
 Las validaciones las explico en el ["🎥 Vídeo"](https://youtu.be/8itIn1s2cbk)
+
+Las validaciones son las siguientes:
+* Cuando NO hay categorías guardadas entonces NO permitir guardar tareas
+
+* Todos los campos (inputs) son obligatorios
+
+* Para los campos de texto ("input categoría" y "input descripción") la longitud minima es de 3 caracteres.
+
+* Mostrar filtrar por categoria cuando si hay tareas porque no es posible buscar cuando no hay tareas
+
+* Para no romper la relacion de que 1 tarea pertenece a 1 categoría, entonces validar que NO se puede eliminar categorías asociadas a las tareas. Toca primero eliminar la tarea que esta asociada a la categoria y despues si se puede eliminar la categoria
 
 # Experiencia de Usuario
 En el ["🎥 Vídeo"](https://youtu.be/8itIn1s2cbk) explico como hice la maquetacion para mejorar la UX
