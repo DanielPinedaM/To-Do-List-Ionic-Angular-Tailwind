@@ -23,9 +23,7 @@
               "browser": ""
             },
             "index": "src/index.html",
-            "polyfills": [
-              "src/polyfills.ts"
-            ],
+            "polyfills": ["src/polyfills.ts"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "css",
             "assets": [
@@ -53,8 +51,7 @@
                   "maximumError": "4kb"
                 }
               ],
-              "fileReplacements": [
-              ],
+              "fileReplacements": [],
               "outputHashing": "all"
             },
             "development": {
@@ -78,9 +75,7 @@
             "development": {
               "buildTarget": "app:build:development"
             },
-            "ci": {
-              "progress": false
-            }
+            "ci": {}
           },
           "defaultConfiguration": "development"
         },
