@@ -184,13 +184,11 @@ Dentro de Xcode generar el IPA
 
 Para hacer commits use la [extension conventional commits de VS Code](https://marketplace.visualstudio.com/items?itemName=vivaxy.vscode-conventional-commits)
 
-Puedes ver los commits [aqui en GitHub](https://github.com/DanielPinedaM/To-Do-List-Ionic-Angular-Tailwind/commits/main/) o ejecutando
+Puedes ver los commits [aqui en GitHub](https://github.com/DanielPinedaM/To-Do-List-Ionic-Angular-Tailwind/commits/main/) o ejecutando en la carpeta raiz del proyecto
 
 ```console
 git log --oneline
 ```
-
-En la carpeta raiz del proyecto
 
 # Persistencia de datos
 > "utiliza almacenamiento local para guardar el estado de las tareas"
