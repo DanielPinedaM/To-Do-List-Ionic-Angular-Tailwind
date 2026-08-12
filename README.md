@@ -294,20 +294,10 @@ Hacer un commit por cada feature o bug solucionado.
 
 # Categorías Dinámicas
 
-# Validaciones
-INCOMPLETO - aqui explicar q validaciones hice
+# Validaciones de Formilarios
+Las validaciones las explico en "🎥 Vídeo"
 
-## Validaciones de formularios
 
-## Mostrar filtros cuando SI hay tareas
-
-@if (hasTasks()) {
-  <app-tasks-search
-    (categoriesIdsFilterChange)="onCategoriesIdsFilterChange($event)"
-  ></app-tasks-search>
-
-  <!-- aqui se pueden agregar mas componentes con filtros de busqueda -->
-}
 
 ## "No hay tareas para las categorias X seleccionadas"
 Cuando:
