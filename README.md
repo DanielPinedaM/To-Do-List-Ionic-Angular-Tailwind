@@ -206,6 +206,8 @@ Hay dos formas de ver los commits:
 git log --oneline
 ```
 
+![commit-en-git](/docs/img/git-commit/en-git.png)
+
 ## Commit Inicial
 1. Para cambiar el HEAD de Git al primer commit ejecutar:
 
