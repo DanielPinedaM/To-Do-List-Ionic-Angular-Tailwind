@@ -1,5 +1,7 @@
 # To-Do List (CRUD) de Tareas y Categorías
 
+![app](/docs/img/app.png)
+
 # 🛑 Antes de Empezar
 Hola, ¿Como estas?. Soy Daniel Pineda.
 
@@ -10,8 +12,13 @@ A continuación, voy a citar textualmente cada uno de los [enunciados del PDF](h
 # 🎥 Vídeo
 > "Capturas de pantalla o grabaciones de video que muestren las nuevas funcionalidades en acción."
 
+El video esta en el siguiente enlace de YouTube:
+[https://youtu.be/8itIn1s2cbk](https://youtu.be/8itIn1s2cbk)
+
 # ▶️ ¿Como Ejecutar Aplicación en Local Host?
 > "incluyendo un archivo README que explique cómo ejecutar la aplicación"
+
+Clonar repositorio
 
 ```console
 git clone https://github.com/DanielPinedaM/To-Do-List-Ionic-Angular-Tailwind.git
@@ -175,6 +182,66 @@ npm run cap:open:ios
 Dentro de Xcode generar el IPA
 
 # 📁 Estructura del Proyecto
+**src\app\features\to-do\main:** Componente principal que llama a todos los componentes de tareas y categorias
+
+La logica de tareas y categorias es similar
+
+## Tareas
+
+### components de tareas
+* **src\app\features\to-do\tasks\components\form-edit-save-tasks:** Formulario para editar y guardar **tareas**
+
+* **src\app\features\to-do\tasks\components\list-tasks-on-cards:** Lista las **tareas** en unas cards
+
+* **src\app\features\to-do\tasks\components\tasks-search:** Formulario para filtrar **tareas** por categorias
+
+### interfaces de tareas
+* **src\app\features\to-do\tasks\interfaces\tasks.interface.ts** Tipo de dato de las **tareas** (id, description, completed, category)
+
+### services de tareas
+* **src\app\features\to-do\tasks\services\stores\tasks.store.ts:** Estado global con signal que guarda las **tareas**. Sirve para listar y setear las **tareas**
+
+* **src\app\features\to-do\tasks\services\task-crud.service.ts:** Permite hacer el CRUD de las **tareas** (crear, actualizar y eliminar)
+
+**Nota:** El estado global `tasks.store.ts` es el que lista las **tareas**, por eso es que `task-crud.service.ts` solo sirve para crear, actualizar y eliminar y NO para **listar**
+
+## Categorias
+
+### components de categorias
+* **src\app\features\to-do\categories\components\form-edit-save-categories:**  Formulario para editar y guardar **categorias**
+
+* **src\app\features\to-do\categories\components\list-categories-on-cards:** Lista las **categorias** en unas cards
+
+### interfaces de categorias
+* **src\app\features\to-do\categories\interfaces\categories.interface.ts** Tipo de dato de las **categorias** (id, description)
+
+### services de categorias
+* **src\app\features\to-do\categories\services\stores\categories.store.ts** Estado global con signal que guarda las **categorias**. Sirve para listar y setear las **categorias**
+
+* **src\app\features\to-do\categories\services\categories-crud.service.ts** Permite hacer el CRUD de las **categorias** (crear, actualizar y eliminar)
+
+**Nota:** El estado global `categories.store.ts` es el que lista las **categorias**, por eso es que `categories-crud.service.ts` solo sirve para crear, actualizar y eliminar y NO para **listar**
+
+## Servicios Compartidos
+Contiene logica que se usa en categorias y tareas
+
+### Persistencia de datos
+> "utiliza almacenamiento local para guardar el estado de las tareas"
+
+El almacenamiento local de ionic es @capacitor/preferences
+
+* **src\app\features\to-do\services\helpers\capacitor-preferences.helper.service.ts** Permite guardar array de objetos de las tareas y categorias en el @capacitor/preferences usando JSON.stringify y JSON.parse. Sirve para persistir los datos
+
+### IDs unicos y auto-incrementables
+* **src\app\features\to-do\services\helpers\to-do-id-generator.helper.service.ts**
+Genera IDs unicos y auto-incrementables para las tareas y categorias
+
+Los IDs permiten:
+* Identificar cada categoria y tarea
+
+* "Asignar una categoría a cada tarea"
+
+* Buscar mediante el ID, cual categoria y tarea se va a crear, actualizar y eliminar.
 
 # 🚩 Firebase Remote Config Feature Flag
 > "3. Implementación de Firebase y Remote Config
@@ -235,7 +302,7 @@ Llamadas a la API de firebase:
 ![9_api_firebase.png](/docs/img/firebase_remote_config/9_api_firebase.png)
 
 > [!IMPORTANT]
-> En el "🎥 Vídeo" demuestro que la feature flag si funciona. Estas capturas de pantalla son solamente para mostrar la configuracion de Firebase.
+> En el ["🎥 Vídeo"](https://youtu.be/8itIn1s2cbk) demuestro que la feature flag si funciona. Estas capturas de pantalla son solamente para mostrar la configuracion de Firebase.
 
 # 🪾 Versionamiento de la Aplicación con Git y GitHub
 > "Versionar la aplicación demo en un repositorio de Git:
@@ -289,38 +356,26 @@ De forma intencional hice muchos commits, la razon es que cada vez que algo me f
 
 Hacer un commit por cada feature o bug solucionado.
 
-# Persistencia de datos
-> "utiliza almacenamiento local para guardar el estado de las tareas"
-
 # Categorías Dinámicas
+Las explico en el ["🎥 Vídeo"](https://youtu.be/8itIn1s2cbk)
 
 # Validaciones de Formilarios
-Las validaciones las explico en "🎥 Vídeo"
-
-
-
-## "No hay tareas para las categorias X seleccionadas"
-Cuando:
-1. SI hay tareas tasks().length > 0
-
-2. Se ha filtrado por categoria
-
-Mostrar mensaje "No hay tareas para las categorias X seleccionadas"
-
-"X" son las categorias seleccionadas
+Las validaciones las explico en el ["🎥 Vídeo"](https://youtu.be/8itIn1s2cbk)
 
 # Optimización de Rendimiento
 
 ## Infinite Scroll
-[ion-infinite-scroll](https://ionicframework.com/docs/api/infinite-scroll) y [ion-infinite-scroll-content](https://ionicframework.com/docs/api/infinite-scroll-content)
+Use [ion-infinite-scroll](https://ionicframework.com/docs/api/infinite-scroll) y [ion-infinite-scroll-content](https://ionicframework.com/docs/api/infinite-scroll-content) para **simular** con un `setTimeout()` la carga de las tareas al hacer scroll vertical
 
-* **En este proyecto**
+Quiero aclarar que significa "simular":
 
-* **En proyecto real de producción**
+* **En este proyecto:** Las tareas ya están cargadas en el frontend y permanecen en el estado, por lo que el Infinite Scroll es visual.
 
-No signifca que la paginacion en este proyecto este mal
+* **En un proyecto real de produccion:** Lo habitual sería consumir la API y cargar únicamente las próximas N tareas cada vez que el usuario hace scroll.
 
-signifca que **INCOMPLETO**
+La diferencia es que en este proyecto los datos siempre estan guardados en el frontend, en cambio, al hacer peticiones HTTP puede guardarse en estado y renderizarse unicamente las tareas visibles
+
+Esto signifca que la paginacion en este proyecto este mal, significa que como no existen peticiones HTTP, entonces no es posible guardar en el estado las N tareas visibles por el usuario al hacer scroll
 
 ## Signals
 
