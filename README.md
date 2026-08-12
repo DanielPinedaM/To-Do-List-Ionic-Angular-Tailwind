@@ -422,7 +422,7 @@ Quiero aclarar que significa "simular":
 
 La diferencia es que en este proyecto los datos siempre estan guardados en el frontend, en cambio, al hacer peticiones HTTP puede guardarse en estado y renderizarse unicamente las tareas visibles
 
-Esto signifca que la paginacion en este proyecto este mal, significa que como no existen peticiones HTTP, entonces no es posible guardar en el estado las N tareas visibles por el usuario al hacer scroll
+Esto no significa que la paginacion en este proyecto este mal, significa que como no existen peticiones HTTP, entonces no es posible guardar en el estado las N tareas visibles por el usuario al hacer scroll
 
 **¿Por que?** Renderizar solamente los elementos visibles permite que la UI no se bloquee. Tener estados con muchos datos genera lentitud en la app
 
