@@ -46,7 +46,7 @@ fnm use 24.0.0
 ```
 
 ## 📦 Instalar Paquetes
-Esto va a instalar Ionic, capacitor, Angular y Tailwind
+Esto va a instalar Ionic, Capacitor, Angular y Tailwind
 
 ```console
 npm i
@@ -93,7 +93,7 @@ Los pasos siempre son iguales, lo que cambia son los comandos, dependiendo si es
 Los pasos 1 hasta 4 sincronizan el proyecto con el IDE, es decir, sirven para emular, solo el paso 5 dentro del IDE es el que genera el APK e IPA
 
 ## 1. Compilar la Aplicación Web
-En la carpeta raiz del proyecto se crea una nueva carpeta llamada `www` que contiene archivos compilados que el movil puede ejecutar en el WebView.
+En la carpeta raiz del proyecto se crea una nueva carpeta llamada `www` que contiene archivos compilados a HTML, CSS y JavaScript.
 
 Ejecutar siempre en Windows y macOS:
 
@@ -101,34 +101,57 @@ Ejecutar siempre en Windows y macOS:
 npm run build:ionic
 ```
 
-### Android
+## Android
 Desde un Windows con Android Studio instalado
 
-## 2. Crear el Proyecto Nativo de Android
+### 2. Crear el Proyecto Nativo de Android
 En la carpeta raiz del proyecto se crea una nueva carpeta llamada `android` que es la aplicacion movil compilada a Android nativo
 
 ```console
 npm run cap:add:android
 ```
 
-## 3. Sincronizar Android
+### 3. Sincronizar Android
 
 ```console
 npm run cap:sync:android
 ```
 
-## 4. Abrir Android Studio
+### 4. Abrir Android Studio
 
 ```console
 npm run cap:open:android
 ```
 
-## 5. Generar APK
+### 5. Generar APK
+Dentro de Android Studio dar click en:
 
-### iOS
+> Build > Generate APP Bundles or APKs > Generate APKs
+
+![generar_apk](/docs/img/apk/generar_apk.jpg)
+
+En la notificacion que se muestra que dice "Build Completed" dar click en "locate"
+
+![notificacion](/docs/img/apk/notificacion.png)
+
+Android studio guarda el APK en la ruta:
+
+```txt
+android/app/build/outputs/apk/debug/app-debug.apk
+```
+
+## ⬇️ Descargar APK
+> [!IMPORTANT]
+> La carpeta `android` **NO** existe en el repositorio. El APK esta subido en el repositorio. Para **descargar** el APK debes abrir la siguiente ruta del proyecto:
+
+[apk/app-debug.apk]()
+
+![notificacion](/docs/img/apk/descargar_apk.png)
+
+## iOS
 Desde un macOS  con Xcode instalado
 
-## 2. Crear el Proyecto Nativo de iOS
+### 2. Crear el Proyecto Nativo de iOS
 
 En la carpeta raiz del proyecto se crea una nueva carpeta llamada `ios` que es la aplicacion movil compilada a iOS nativo
 
@@ -136,19 +159,19 @@ En la carpeta raiz del proyecto se crea una nueva carpeta llamada `ios` que es l
 npm run cap:add:ios
 ```
 
-## 3. Sincronizar iOS
+### 3. Sincronizar iOS
 
 ```console
 npm run cap:sync:ios
 ```
 
-## 4. Abrir Xcode
+### 4. Abrir Xcode
 
 ```console
 npm run cap:open:ios
 ```
 
-## 5. Generar IPA
+### 5. Generar IPA
 Dentro de Xcode generar el IPA
 
 # 📁 Estructura del Proyecto
@@ -161,6 +184,14 @@ Dentro de Xcode generar el IPA
 
 Para hacer commits use la [extension conventional commits de VS Code](https://marketplace.visualstudio.com/items?itemName=vivaxy.vscode-conventional-commits)
 
+Puedes ver los commits [aqui en GitHub](https://github.com/DanielPinedaM/To-Do-List-Ionic-Angular-Tailwind/commits/main/) o ejecutando
+
+```console
+git log --oneline
+```
+
+En la carpeta raiz del proyecto
+
 # Persistencia de datos
 > "utiliza almacenamiento local para guardar el estado de las tareas"
 
@@ -169,6 +200,14 @@ Para hacer commits use la [extension conventional commits de VS Code](https://ma
 # Validaciones de formularios
 
 ## Mostrar filtros cuando SI hay tareas
+
+@if (hasTasks()) {
+  <app-tasks-search
+    (categoriesIdsFilterChange)="onCategoriesIdsFilterChange($event)"
+  ></app-tasks-search>
+
+  <!-- aqui se pueden agregar mas componentes con filtros de busqueda -->
+}
 
 ## "No hay tareas para las categorias X seleccionadas"
 Cuando:
@@ -204,25 +243,25 @@ INCOMPLETO - aqui explicar q validaciones hice
 En programación no existe una respuesta correcta o incorrecta, siempre existen diferentes formas de resolver el mismo problema. Esto es una justificación basado en mis conocimientos.
 
 ## 🅰️ Stack Frontend del Proyecto
-* @ionic/angular 8.0.0
+* `@ionic/angular 8.0.0`
 
-* @ionic/cli 7.2.1
+* `@ionic/cli 7.2.1`
 
-* @capacitor/cli 8.5.0
+* `@capacitor/cli 8.5.0`
 
-* Tailwind 4
+* `"tailwindcss": "^4.3.3"`
 
 * CSS
 
-* Angular 20
+* `"@angular/cli": "20.3.28"`
 
-* TypeScript
+* `"typescript": "~5.9.0"`
 
 * Node.js 24.0.0
 
 ## Angular Moderno VS Angular Legacy
 
-## ¿Porque NO Uso las Últimas Versiones de Angular y TypeScript?
+## ¿Porque NO Uso las Últimas Versiones de Angular, TypeScript y Node.js?
 Al momento de escribir esto (Agosto 2026)
 
 https://www.npmjs.com/package/@ionic/angular?activeTab=versions
@@ -256,12 +295,12 @@ CREO QUE NO SE PUEDE ACCEDER AL SHADOW DOM USANDO CSS NESTING
 
 ## ¿Porque uso [`FormGroup` (Reactive Forms)](https://angular.dev/guide/forms/reactive-forms) y NO [Forms with signals](https://angular.dev/essentials/signal-forms)?
 
-## ¿Porque Uso Estados Globales y NO Paso `input()` (props) Desde el Componente Padre?
+## ¿Porque Uso Estados Globales?
 prop drilling
 
 No siempre es necesario usar estados globales, **INCOMPLETO**
 
-# `div` wrapper
+## `div` wrapper
 
 ## ¿Porque Cuando Cree el Proyecto NO Instale Ionic de Forma Global?
 La [documentación oficial](https://ionicframework.com/docs/intro/cli#install-the-ionic-cli) recomienda instalar ionic de forma global con la bandera `-g`
@@ -276,22 +315,22 @@ Sin embargo, cuando cree el proyecto hice esto:
 npx @ionic/cli@latest start to-do blank --type=angular --package-id=com.todo.com --no-git
 ```
 
-`npx`
+* **`npx`**
 
-`@ionic/cli@latest`
+* **`@ionic/cli@latest`**
 
-`start to-do` crea un proyecto llamado "to-do"
+* **`start to-do`** Crea un proyecto llamado "to-do"
 
-`blank` crea un template en blanco sin estilos
+* **`blank`** Crea un template en blanco sin estilos
 
-`--type=angular`
+* **`--type=angular`**
 
-`--package-id=com.todo.com`
+* **`--package-id=com.todo.com`**
 
-`--no-git`
+* **`--no-git`**
 
 ```console
-cd to-do
+cd ruta/a/carpeta/raiz/del/proyecto
 ```
 
 ```console
@@ -317,5 +356,5 @@ npm i @capacitor/preferences
 **Razon:**
 Instalar de forma local en `node_modules` permite tener varios proyectos ionic con diferentes versiones.
 
-## ¿Porque Borre los Archivos `.spec.ts`?
+## 🧪 ¿Porque Borre los Archivos `.spec.ts`?
 Lo hice para simplificar, aunque es buena practica tener test de los procesos criticos de la app.
